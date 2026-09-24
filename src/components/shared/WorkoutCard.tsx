@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+
 interface Workout {
     id: number;
     name: string;
@@ -14,79 +15,69 @@ interface Workout {
     rating: number;
     description: string;
 }
+
 const WorkoutCard = ({ workout }: { workout: Workout }) => {
     return (
-        <div className="overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl">
+        <div className="overflow-hidden rounded-xl border border-gray-800 bg-[#15171c]">
 
-            <Image
-                src={workout.image}
-                alt={workout.name}
-                width={500}
-                height={300}
-                className="h-52 w-full object-cover"
-            />
+            <div className="aspect-[16/9] w-full">
+                <Image
+                    src={workout.image}
+                    alt={workout.name}
+                    width={500}
+                    height={280}
+                    className="h-full w-full object-cover"
+                />
+            </div>
 
-            <div className="p-5">
+            <div className="p-4">
 
-                <div className="mb-3 flex items-start justify-between gap-3">
-                    <h2 className="text-xl font-bold">
-                        {workout.name}
-                    </h2>
+                {/* Muscle Groups + Rating */}
+                <div className="mb-3 flex items-center justify-between gap-2">
 
-                    <span className="rounded-full bg-yellow-100 px-3 py-1 text-sm">
-                        ⭐ {workout.rating}
+                    <div className="flex flex-wrap gap-1.5">
+                        {workout.muscleGroups.map((muscle) => (
+                            <span
+                                key={muscle}
+                                className="rounded-full bg-[#b6ff00] px-2.5 py-1 text-[10px] font-bold uppercase text-black"
+                            >
+                                {muscle}
+                            </span>
+                        ))}
+                    </div>
+
+                    <span className="text-xs text-gray-400">
+                        ★ {workout.rating}
                     </span>
+
                 </div>
 
-                <div className="mb-4 flex flex-wrap gap-2">
-                    {workout.muscleGroups.map((muscle) => (
-                        <span
-                            key={muscle}
-                            className="rounded-full bg-blue-100 px-3 py-1 text-xs text-blue-700"
-                        >
-                            {muscle}
-                        </span>
-                    ))}
-                </div>
+                {/* Workout Name */}
+                <h2 className="mb-1 text-lg font-extrabold uppercase tracking-wide text-white">
+                    {workout.name}
+                </h2>
 
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-lg bg-gray-100 p-3">
-                        <p className="text-gray-500">Difficulty</p>
-                        <p className="font-semibold">
-                            {workout.difficulty}
-                        </p>
-                    </div>
-
-                    <div className="rounded-lg bg-gray-100 p-3">
-                        <p className="text-gray-500">Duration</p>
-                        <p className="font-semibold">
-                            {workout.duration} min
-                        </p>
-                    </div>
-
-                    <div className="rounded-lg bg-gray-100 p-3">
-                        <p className="text-gray-500">Calories</p>
-                        <p className="font-semibold">
-                            {workout.caloriesBurned} kcal
-                        </p>
-                    </div>
-
-                    <div className="rounded-lg bg-gray-100 p-3">
-                        <p className="text-gray-500">Sets / Reps</p>
-                        <p className="font-semibold">
-                            {workout.sets} × {workout.reps}
-                        </p>
-                    </div>
-                </div>
-
-                <p className="mt-4 text-sm text-gray-600">
-                    <span className="font-semibold">Equipment:</span>{" "}
+                {/* Equipment */}
+                <p className="mb-4 text-xs text-gray-500">
                     {workout.equipment}
                 </p>
 
-                <p className="mt-3 line-clamp-2 text-sm text-gray-500">
-                    {workout.description}
-                </p>
+                {/* Workout Info */}
+                <div className="flex items-center gap-4 border-t border-gray-800 pt-3 text-xs text-gray-400">
+
+                    <span>
+                        ◷ {workout.duration} min
+                    </span>
+
+                    <span>
+                        ● {workout.caloriesBurned} kcal
+                    </span>
+
+                    <span>
+                        ★ {workout.rating}
+                    </span>
+
+                </div>
 
             </div>
         </div>

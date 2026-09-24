@@ -7,6 +7,7 @@ const page = () => {
     <div>
       <Banner></Banner>
       <Library></Library>
+       
     </div>
   );
 };

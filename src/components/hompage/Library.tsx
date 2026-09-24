@@ -17,11 +17,17 @@ const Library = async () => {
     return (
         <section className="container mx-auto my-[70px] px-4">
 
-            <h1 className="mb-8 text-3xl font-bold">
-                Workout Library
-            </h1>
+            <div>
+                <h1 className="mb-8 text-3xl font-bold">
+                    Workout Library <br />
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <span className="text-sm font-light">
+                        Twelve lifts covering every major muscle group
+                    </span>
+                </h1>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
                 {libraryData.map((library) => (
                     <WorkoutCard
