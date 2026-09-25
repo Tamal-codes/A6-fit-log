@@ -34,7 +34,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
 
                 <div className="p-4">
 
-                    {/* Muscle Groups + Rating */}
+                   
                     <div className="mb-3 flex items-center justify-between gap-2">
 
                         <div className="flex flex-wrap gap-1.5">
@@ -54,17 +54,17 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
 
                     </div>
 
-                    {/* Workout Name */}
+                 
                     <h2 className="mb-1 text-lg font-extrabold uppercase tracking-wide text-white">
                         {workout.name}
                     </h2>
 
-                    {/* Equipment */}
+                 
                     <p className="mb-4 text-xs text-gray-500">
                         {workout.equipment}
                     </p>
 
-                    {/* Workout Info */}
+              
                     <div className="flex items-center gap-4 border-t border-gray-800 pt-3 text-xs text-gray-400">
 
                         <span>

@@ -1,5 +1,7 @@
+
 import Image from 'next/image';
 import React from 'react';
+import WorkoutActions from '@/components/WorkoutAction';
 
 interface Workout {
     id: number | string;
@@ -29,7 +31,6 @@ type PageProps = {
 };
 
 const WorkoutDetailsPage = async ({ params }: PageProps) => {
-  
     const resolvedParams = await params;
     const workout = await getWorkoutDetails(resolvedParams.id);
 
@@ -44,10 +45,9 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
     return (
         <section className="min-h-screen bg-[#121212] py-12 text-white">
             <div className="container mx-auto max-w-5xl px-4">
-                
-                {/* Main Card Container */}
+
                 <div className="grid grid-cols-1 gap-8 rounded-3xl bg-[#1E1E1E] p-6 lg:grid-cols-2 lg:p-8">
-                    
+
                     {/* Left: Image */}
                     <div className="relative h-87.5 w-full overflow-hidden rounded-2xl lg:h-full">
                         <Image
@@ -58,9 +58,9 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                         />
                     </div>
 
-                    {/* Right: Details */}
                     <div className="flex flex-col justify-between">
                         <div>
+
                             {/* Title */}
                             <h1 className="text-3xl font-extrabold uppercase tracking-wide">
                                 {workout.name}
@@ -71,7 +71,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                                 {workout.description}
                             </p>
 
-                            {/* Muscle Tags */}
+                            {/* Muscle Groups */}
                             <div className="mt-4 flex flex-wrap gap-2">
                                 {workout.muscleGroups?.map((muscle: string, index: number) => (
                                     <span
@@ -83,36 +83,58 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                                 ))}
                             </div>
 
-                            {/* Specs Table List */}
+                            {/* Workout Information */}
                             <div className="mt-6 divide-y divide-gray-800 border-t border-b border-gray-800 text-sm">
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">EQUIPMENT</span>
-                                    <span className="font-semibold">{workout.equipment}</span>
+                                    <span className="font-semibold">
+                                        {workout.equipment}
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">DIFFICULTY</span>
-                                    <span className="font-semibold capitalize">{workout.difficulty}</span>
+                                    <span className="font-semibold capitalize">
+                                        {workout.difficulty}
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">SETS</span>
-                                    <span className="font-semibold">{workout.sets}</span>
+                                    <span className="font-semibold">
+                                        {workout.sets}
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">REPS</span>
-                                    <span className="font-semibold">{workout.reps}</span>
+                                    <span className="font-semibold">
+                                        {workout.reps}
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">DURATION</span>
-                                    <span className="font-semibold">{workout.duration} min</span>
+                                    <span className="font-semibold">
+                                        {workout.duration} min
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">CALORIES</span>
-                                    <span className="font-semibold">{workout.caloriesBurned} kcal</span>
+                                    <span className="font-semibold">
+                                        {workout.caloriesBurned} kcal
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between py-3">
                                     <span className="text-gray-400">RATING</span>
-                                    <span className="font-semibold">{workout.rating}</span>
+                                    <span className="font-semibold">
+                                        {workout.rating}
+                                    </span>
                                 </div>
+
                             </div>
 
                             {/* Instructions */}
@@ -121,28 +143,25 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                                     <h3 className="mb-2 font-bold uppercase tracking-wider text-gray-200">
                                         INSTRUCTIONS
                                     </h3>
+
                                     <ol className="list-inside list-decimal space-y-2 text-xs text-gray-400">
                                         {Array.isArray(workout.instructions) ? (
-                                            workout.instructions.map((step: string, index: number) => (
-                                                <li key={index}>{step}</li>
-                                            ))
+                                            workout.instructions.map(
+                                                (step: string, index: number) => (
+                                                    <li key={index}>{step}</li>
+                                                )
+                                            )
                                         ) : (
                                             <li>{workout.instructions}</li>
                                         )}
                                     </ol>
                                 </div>
                             )}
+
                         </div>
 
-                        {/* Action Buttons */}
-                        <div className="mt-8 flex flex-wrap gap-4">
-                            <button className="flex-1 rounded-xl bg-[#CCFF00] px-6 py-3 text-center text-sm font-bold text-black transition hover:bg-[#b3e600]">
-                                Add to today's plan
-                            </button>
-                            <button className="rounded-xl border border-gray-700 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-800">
-                                Save for later
-                            </button>
-                        </div>
+                        {/* Plan & Save Actions */}
+                        <WorkoutActions workout={workout} />
 
                     </div>
                 </div>
@@ -153,3 +172,4 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
 };
 
 export default WorkoutDetailsPage;
+
