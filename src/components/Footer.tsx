@@ -5,11 +5,11 @@ import Image from 'next/image';
 const Footer = () => {
     return (
         <footer className="border-t border-gray-200 bg-gray-900 text-gray-300">
-            <div className=" flex flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
+            <div className=" flex flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row">
                 
                
                 <div className="flex items-center gap-3">
-                    <Image src={logo} alt="FitLog Logo" width={40} height={40} className="object-contain" />
+                    <Image src={logo} alt="FitLog Logo" width={40} height={30} className="object-contain" />
                     <span className="text-xl font-bold tracking-wide text-white">
                         FitLog
                     </span>

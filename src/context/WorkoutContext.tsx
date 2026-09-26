@@ -1,9 +1,9 @@
-
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
 
-interface Workout {
+
+export interface Workout {
     id: number | string;
     name: string;
     image: string;
@@ -12,9 +12,10 @@ interface Workout {
     difficulty: string;
     sets: number;
     reps: string;
+    rating?: number;
 }
 
-interface WorkoutContextType {
+export interface WorkoutContextType {
     plan: Workout[];
     saved: Workout[];
     setPlan: React.Dispatch<React.SetStateAction<Workout[]>>;
@@ -54,4 +55,3 @@ export const useWorkout = () => {
 
     return context;
 };
-
