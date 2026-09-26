@@ -48,7 +48,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
 
                 <div className="grid grid-cols-1 gap-8 rounded-3xl bg-[#1E1E1E] p-6 lg:grid-cols-2 lg:p-8">
 
-                    {/* Left: Image */}
+                
                     <div className="relative h-87.5 w-full overflow-hidden rounded-2xl lg:h-full">
                         <Image
                             src={workout.image}
@@ -61,17 +61,17 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                     <div className="flex flex-col justify-between">
                         <div>
 
-                            {/* Title */}
+                        
                             <h1 className="text-3xl font-extrabold uppercase tracking-wide">
                                 {workout.name}
                             </h1>
 
-                            {/* Description */}
+                          
                             <p className="mt-3 text-sm text-gray-400">
                                 {workout.description}
                             </p>
 
-                            {/* Muscle Groups */}
+                      
                             <div className="mt-4 flex flex-wrap gap-2">
                                 {workout.muscleGroups?.map((muscle: string, index: number) => (
                                     <span
@@ -83,7 +83,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                                 ))}
                             </div>
 
-                            {/* Workout Information */}
+                         
                             <div className="mt-6 divide-y divide-gray-800 border-t border-b border-gray-800 text-sm">
 
                                 <div className="flex justify-between py-3">
@@ -137,7 +137,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
 
                             </div>
 
-                            {/* Instructions */}
+                        
                             {workout.instructions && (
                                 <div className="mt-6">
                                     <h3 className="mb-2 font-bold uppercase tracking-wider text-gray-200">
@@ -160,7 +160,6 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
 
                         </div>
 
-                        {/* Plan & Save Actions */}
                         <WorkoutActions workout={workout} />
 
                     </div>

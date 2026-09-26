@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <div className='bg-[#222941] rounded-3xl p-8 md:p-12 my-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center'>
 
-            {/* Left Content */}
+        
             <div className='space-y-4'>
                 <h3 className='text-xs font-semibold tracking-wider text-[#ccff00] uppercase'>
                     WORKOUT LIBRARY
@@ -29,7 +29,7 @@ const Banner = () => {
                 </div>
             </div>
 
-            {/* Right Image */}
+            
             <div className='flex justify-center md:justify-end items-center'>
                 <Image
                     src={banner}
