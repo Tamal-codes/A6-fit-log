@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
 import { useWorkout } from "@/context/WorkoutContext";
+import { toast } from "react-toastify";
 
 const MyPlanPage = () => {
     const {
@@ -30,7 +31,6 @@ const MyPlanPage = () => {
         0
     );
 
-    
     const sortedWorkouts = useMemo(() => {
         if (!workouts || workouts.length === 0) return [];
 
@@ -44,7 +44,6 @@ const MyPlanPage = () => {
             }
 
             if (sortBy === "rating") {
-                // High rating to Low rating sort
                 return (Number(b.rating) || 0) - (Number(a.rating) || 0);
             }
 
@@ -54,10 +53,12 @@ const MyPlanPage = () => {
 
     const handleRemove = (id: number | string) => {
         setPlan(plan.filter((workout) => workout.id !== id));
+        toast.success("Exercise marked as done! 🎉");
     };
 
     const handleRemoveSaved = (id: number | string) => {
         setSaved(saved.filter((workout) => workout.id !== id));
+        toast.info("Removed from saved");
     };
 
     return (
@@ -96,7 +97,6 @@ const MyPlanPage = () => {
                     </div>
                 </div>
 
-            
                 <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex w-fit rounded-xl border border-gray-800 bg-[#13171f] p-1">
                         <button
@@ -120,7 +120,6 @@ const MyPlanPage = () => {
                         </button>
                     </div>
 
-                 
                     <div className="flex items-center gap-2">
                         <span className="text-sm text-gray-400">Sort By</span>
                         <select
@@ -135,7 +134,6 @@ const MyPlanPage = () => {
                     </div>
                 </div>
 
-              
                 {sortedWorkouts.length > 0 ? (
                     <div className="space-y-3">
                         {sortedWorkouts.map((workout) => (
