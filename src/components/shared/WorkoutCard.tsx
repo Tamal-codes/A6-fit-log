@@ -22,7 +22,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
         <Link href={`/library/${workout.id}`} className="block">
             <div className="overflow-hidden rounded-xl border border-gray-800 bg-[#15171c] transition hover:border-gray-700 cursor-pointer">
 
-                <div className="aspect-[16/9] w-full">
+                <div className="`aspect-veido` w-full">
                     <Image
                         src={workout.image}
                         alt={workout.name}

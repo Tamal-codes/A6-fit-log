@@ -1,7 +1,6 @@
 import WorkoutCard from "@/components/shared/WorkoutCard";
 import { ComponentProps } from "react";
 
-// WorkoutCard কম্পোনেন্ট আসলে যে টাইপটা আশা করছে, সেটা এখান থেকে অটোমেটিক বের করা হচ্ছে
 type WorkoutCardProps = ComponentProps<typeof WorkoutCard>["workout"];
 
 const getLibrary = async (): Promise<WorkoutCardProps[]> => {

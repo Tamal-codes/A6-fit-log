@@ -30,7 +30,7 @@ const MyPlanPage = () => {
         0
     );
 
-    // Dynamic sorting for Duration, Calories & Rating
+    
     const sortedWorkouts = useMemo(() => {
         if (!workouts || workouts.length === 0) return [];
 
@@ -73,7 +73,6 @@ const MyPlanPage = () => {
                     </p>
                 </div>
 
-                {/* Statistics */}
                 <div className="mb-7 grid grid-cols-1 divide-y divide-gray-800 overflow-hidden rounded-2xl border border-gray-800 bg-[#13171f] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
                     <div className="px-6 py-5">
                         <p className="text-sm text-gray-400">Exercises</p>
@@ -97,7 +96,7 @@ const MyPlanPage = () => {
                     </div>
                 </div>
 
-                {/* Tabs + Sort Dropdown */}
+            
                 <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex w-fit rounded-xl border border-gray-800 bg-[#13171f] p-1">
                         <button
@@ -121,7 +120,7 @@ const MyPlanPage = () => {
                         </button>
                     </div>
 
-                    {/* Updated Dropdown Select */}
+                 
                     <div className="flex items-center gap-2">
                         <span className="text-sm text-gray-400">Sort By</span>
                         <select
@@ -136,7 +135,7 @@ const MyPlanPage = () => {
                     </div>
                 </div>
 
-                {/* Workout List */}
+              
                 {sortedWorkouts.length > 0 ? (
                     <div className="space-y-3">
                         {sortedWorkouts.map((workout) => (
